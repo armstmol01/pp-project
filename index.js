@@ -3,6 +3,14 @@ const path = require('path');
 
 const app = express();
 
+const { Pool } = require('pg');
+const pool = new Pool({
+  connectionString: process.env.DATABASE_URL,
+  ssl: {
+    rejectUnauthorized: false
+  }
+});
+
 // Serve static files from the React app
 app.use(express.static(path.join(__dirname, 'client/build')));
 
@@ -20,8 +28,8 @@ app.get('api/user', async function(req, res, next) {
 
   let qry = 'SELECT * FROM clients WHERE id=?';
   let db = await getDBConnection();
-  let data = await db.get(qry, [userid]); // get for 1 row, all for multiple
-  await db.close();
+  let data = await db.query(qry, [userid]); // get for 1 row, all for multiple
+  db.release();
 
   if (!data) {
     return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
@@ -42,8 +50,8 @@ app.get('api/user', async function(req, res, next) {
 app.get('api/strava-creds', async function(req, res, next) {
   let qry = 'SELECT * FROM strava_credentials WHERE client_id=?';
   let db = await getDBConnection();
-  let data = await db.get(qry, [90470]); // get for 1 row, all for multiple
-  await db.close();
+  let data = await db.query(qry, [90470]); // get for 1 row, all for multiple
+  db.release();
 
   if (!data) {
     return res.status(CLIENT_ERROR_CODE).send("Couldn't get data");
@@ -68,8 +76,8 @@ app.post('api/update-strava-creds', async function(req, res, next) {
   let expires_at = req.body.expires_at; // UNIX time
   let qry = "UPDATE strava_credentials SET access_token=?, refresh_token=?, expires_at=? WHERE client_id=?";
   let db = await getDBConnection();
-  await db.run(qry, [access_token, refresh_token, expires_at, 90470]); // update 1 row
-  await db.close();
+  await db.query(qry, [access_token, refresh_token, expires_at, 90470]); // update 1 row
+  db.release();
 });
 
 // The "catchall" handler: for any request that doesn't
@@ -82,11 +90,15 @@ app.get('*', (req, res) => {
  * Establishes database connection
  */
  async function getDBConnection() {
-  const db = await sqlite.open({
-    filename: DB_NAME,
-    driver: sqlite3.Database
-  });
+  const db = await pool.connect();
   return db;
+
+
+  // const db = await sqlite.open({
+  //   filename: DB_NAME,
+  //   driver: sqlite3.Database
+  // });
+  // return db;
 }
 
 const port = process.env.PORT || 8000;
