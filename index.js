@@ -1,0 +1,93 @@
+const express = require('express');
+const path = require('path');
+
+const app = express();
+
+// Serve static files from the React app
+app.use(express.static(path.join(__dirname, 'client/build')));
+
+// Put all API endpoints under '/api'
+const DB_NAME = "rover-clients.db";
+const SERVER_ERROR_CODE = 500;
+const CLIENT_ERROR_CODE = 400;
+
+/* GET users listing. */
+app.get('api/user', async function(req, res, next) {
+  const userid = parseInt(req.query.passcode, 10);
+  if (!userid) {
+    return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
+  }
+
+  let qry = 'SELECT * FROM clients WHERE id=?';
+  let db = await getDBConnection();
+  let data = await db.get(qry, [userid]); // get for 1 row, all for multiple
+  await db.close();
+
+  if (!data) {
+    return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
+  }
+
+  let result = {
+    "id": userid,
+    "name": data.name.split("-"),
+    "pets": data.pets.split("-"),        // - for multiple pets
+    "species": data.species.split("-"),
+    "num_pics": data.num_pics
+  }
+
+  res.json(result);
+});
+
+/* GET strava access credientials*/
+app.get('api/strava-creds', async function(req, res, next) {
+  let qry = 'SELECT * FROM strava_credentials WHERE client_id=?';
+  let db = await getDBConnection();
+  let data = await db.get(qry, [90470]); // get for 1 row, all for multiple
+  await db.close();
+
+  if (!data) {
+    return res.status(CLIENT_ERROR_CODE).send("Couldn't get data");
+  }
+
+  let result = {
+    "client_id": data.client_id,
+    "client_secret": data.client_secret,
+    "access_token": data.access_token,
+    "refresh_token": data.refresh_token,
+    "expires_at": data.expires_at
+  }
+
+  res.json(result);
+});
+
+/* update record w/ new token info */
+app.post('api/update-strava-creds', async function(req, res, next) {
+  // JavaScript object containing the parse JSON
+  let refresh_token = req.body.refresh_token;
+  let access_token = req.body.access_token;
+  let expires_at = req.body.expires_at; // UNIX time
+  let qry = "UPDATE strava_credentials SET access_token=?, refresh_token=?, expires_at=? WHERE client_id=?";
+  let db = await getDBConnection();
+  await db.run(qry, [access_token, refresh_token, expires_at, 90470]); // update 1 row
+  await db.close();
+});
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
+});
+
+/**
+ * Establishes database connection
+ */
+ async function getDBConnection() {
+  const db = await sqlite.open({
+    filename: DB_NAME,
+    driver: sqlite3.Database
+  });
+  return db;
+}
+
+const port = process.env.PORT || 8000;
+app.listen(port);
