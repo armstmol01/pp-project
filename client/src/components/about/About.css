@@ -86,7 +86,7 @@ img {
 /* ===== MEDIA QUERIES (SMALL DEVICES) ===== */
 @media screen and (max-width: 600px) {
   .info__container {
-    margin: 2rem 1rem 0 1rem;
+    margin: 0 1rem 0 1rem;
     flex-direction: column-reverse;
     align-items: center;
     text-align: center;
@@ -95,7 +95,8 @@ img {
 
   .link__container {
     flex-direction: column;
-    gap: 0;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
   }
 
   img {
