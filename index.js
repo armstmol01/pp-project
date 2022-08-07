@@ -38,7 +38,7 @@ app.get('/db', async (req, res) => {
 })
 
 /* GET users listing. */
-app.get('api/user', async function(req, res, next) {
+app.get('/api/user', async function(req, res, next) {
   try {
     const userid = req.query.passcode; // stored as text in Heroku db
     if (!userid) {
@@ -71,7 +71,7 @@ app.get('api/user', async function(req, res, next) {
 });
 
 /* GET strava access credientials*/
-app.get('api/strava-creds', async function(req, res, next) {
+app.get('/api/strava-creds', async function(req, res, next) {
   try {
     let qry = 'SELECT * FROM strava_credentials WHERE client_id = $1';
     let db = await getDBConnection();
@@ -98,7 +98,7 @@ app.get('api/strava-creds', async function(req, res, next) {
 });
 
 /* update record w/ new token info */
-app.post('api/update-strava-creds', async function (req, res, next) {
+app.post('/api/update-strava-creds', async function (req, res, next) {
   // JavaScript object containing the parse JSON
   try {
     let refresh_token = req.body.refresh_token;
