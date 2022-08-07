@@ -34,6 +34,7 @@ nav .about {
 .back_arrow__container p {
   /* align w/ back arrow */
   padding-top: 0.5rem;
+  font-size: 2rem;
 }
 
 .back-arrow-icon {
@@ -82,7 +83,6 @@ nav .about {
   }
 
   .back_arrow__container p {
-    /* align w/ back arrow */
     font-size: 1.5rem;
   }
 
