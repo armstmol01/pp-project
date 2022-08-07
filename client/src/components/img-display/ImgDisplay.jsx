@@ -40,6 +40,10 @@ const data = {
 
   ],
   'natalie-autzen' : [
+    {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEifk8zINj7x4UxBQ0NCBJZptDkSZFh1bHCHms7V7Oz6kS1TuIL1mGQfCE5_xCOeLZUhyaIdZ92v1X8DyxCDXaTVDyKMPtEgZnaG6p0uPzI7E23ZnCwC9LWBP_Ds-JMfLRSZ6mfo9OU6hefxR2mPiv0DrgrWuyR5ejNRrtLcrR8k-6h15dLuyNuwoPs/s4032/IMG-6860.jpg'},
+    {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjJrJSFhbfeA0ljrw_MK0D_ld88neQ7dPGjP48x-qOAe9UnHPg6kqnmGk8S4y-t8lz_EUv9yvGxQRlINNTfkSBiKruOl4Re__KMiFD3RGaHcnIsrsATbizpbPt3Ea4gCPMw1oWVMec-AFUoeRPHi24JTG_7-oCH3Dkv2qFvnNFC9DrCVGDQOzlGt9w/s4032/IMG-6855.jpg'},
+    {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgTDQCMc21Bw6bIi0TIs0AxXG3g-mtm3WM2Na8KIetPZKAv-n1KtzupEkeUK8Wa4ZSJh-LI9YmnTy2ojqDCsnOi5fPbbjpmq8fQagB3YtS3Nib6SClevtFrldjsM8X2QSUmcFy9KRrxf-Q3IIZ4YXLtBzk0SsRspnevHk9nminL6epGIX0tNFgPY7E/s4032/IMG-6853.jpg'},
+    {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEiXQ4hWhRpeVgF6F5xprFY5e8dRUdt98b9S44jWGtA35_P4xXHR_5pr8ORhX7jt0HuXTZWRa_HzAZpPo2yx7CAqEkW1QOTloqyvbwXTVOstlZV7aQ51y7bPDVk-HpKTNd9LKJu8U-CzshbqKOZGeclGMkJuX9Q0DLuN9uULzv5bQ78Pdpxw5myvdt4/s4032/IMG-6851.jpg'},
     {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1jXC1RAODAcPEO-Dw9vShHxpOT-9sBP1Ey6djx-YBl0aTYv7eCTRK9U25q2VpN_NbVl_cfhMaGJEA9k4T1A3ODm_btsUWfDifcR2cihz4SLtTw_3X3viBNXwqz8pHhxizedMMs7hZ8S0EHfh5xLee7oV60mHyiGeYntMW8AMoLJNyrMBFGfz2flM/s4032/IMG-6847.jpg'},
     {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9tSuBtOpIFwUkJZjcDibd2v_dAnN5bmUf4wnNfFf4NxU8OqZxr7q0YdVlzINFIPpomgmP5PwlgSWJkLHE2ZtIRp5JkrO5_3BcdQR1kpVKOdn9lAp5zVLoUcsOM8jh6eprLvId0Rk6fl5uX99fZe6XB9YiD9CjLi56EJwX30K4kXiYErAuF74cDpE/s2129/IMG-6836.jpg'},
     {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWveqQVxOrMMon4I-toF2Kwez_h62iL0XDvAqM2zcTDAiS00GTziR68ZxaAgha4r8_SxNHfBsoZsXMZN_luILD52I6MWxeg97b9mySh5jmCUw0YwVPqyq1FX_3Of2QI9CdHhBwhKWY0K7xLqIJfAWBB9yGlrZaWR2C8e6NsGMFmlPM2e5rQfhzPfs/s4032/IMG-6806.jpg'},
