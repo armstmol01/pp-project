@@ -15,7 +15,8 @@ nav .link {
 }
 
 nav .about {
-  text-decoration: underline dotted var(--color-bg-variant) 3px;
+  /* text-decoration: underline dotted var(--color-bg-variant) 3px; */
+  color: var(--color-bg-variant);
 }
 
 #name {
