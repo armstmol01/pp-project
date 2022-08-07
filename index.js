@@ -50,15 +50,16 @@ app.get('/api/user', async function(req, res, next) {
     let data = await client.query(qry, [userid]); // get for 1 row, all for multiple
 
     if (!data) {
+      client.release();
       return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
     }
 
     let result = {
       "id": userid,
-      "name": data.name.split("-"),
-      "pets": data.pets.split("-"),        // - for multiple pets
-      "species": data.species.split("-"),
-      "num_pics": data.num_pics
+      "name": data.rows[0].name.split("-"),
+      "pets": data.rows[0].pets.split("-"),        // - for multiple pets
+      "species": data.rows[0].species.split("-"),
+      "num_pics": data.rows[0].num_pics
     }
     console.log(result);
 
