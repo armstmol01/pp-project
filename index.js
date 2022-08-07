@@ -25,12 +25,6 @@ const CLIENT_ERROR_CODE = 400;
 //   res.send('Hello World!')
 // })
 
-// The "catchall" handler: for any request that doesn't
-// match one above, send back React's index.html file.
-// app.get('/', (req, res) => {
-//   res.sendFile(path.join(__dirname+'/client/build/index.html'));
-// });
-
 app.get('/db', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -120,6 +114,12 @@ app.post('/api/update-strava-creds', async function (req, res, next) {
     console.error(err);
     res.status(SERVER_ERROR_CODE).send("Failed post request");
   }
+});
+
+// The "catchall" handler: for any request that doesn't
+// match one above, send back React's index.html file.
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
 
 /**
