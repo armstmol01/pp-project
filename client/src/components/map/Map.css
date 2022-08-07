@@ -29,5 +29,6 @@
   .map__container {
     border-width: 5px;
     width: 90vw;
+    overflow: hidden;
   }
 }
