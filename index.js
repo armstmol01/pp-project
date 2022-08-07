@@ -44,11 +44,11 @@ app.get('api/user', async function(req, res, next) {
     if (!userid) {
       return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
     }
-
+    console.log(userid);
     let qry = 'SELECT * FROM clients WHERE id = $1';
-    let db = await getDBConnection();
-    let data = await db.query(qry, ['3606280675']); // get for 1 row, all for multiple
-    db.release();
+    const client = await pool.connect();
+    let data = await client.query(qry, [userid]); // get for 1 row, all for multiple
+    client.release();
 
     if (!data) {
       return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
