@@ -101,5 +101,13 @@
 
 /* ===== MEDIA QUERIES (SMALL DEVICES) ===== */
 @media screen and (max-width: 600px) {
+  .swiper-slide img {
+    width: 6rem;
+    border: 5px solid var(--color-light);
+  }
 
+  .swiper__container {
+    width: 20rem;
+    height: 12rem !important; /* for the swiper dots */
+  }
 }

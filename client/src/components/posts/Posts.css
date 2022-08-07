@@ -87,7 +87,9 @@
 
   .content__container {
     margin: auto;
-    padding: 0;
+    overflow-x: hidden;
+    padding: 0 0 1rem 0;
+    gap: 1.5rem
   }
 
   .title__container {
