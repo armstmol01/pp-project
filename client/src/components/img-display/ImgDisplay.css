@@ -1,0 +1,105 @@
+.pics__container {
+  text-align: start;
+}
+
+/* .pics__container .download-msg {
+  font-size: 1.2rem;
+  opacity: 0;
+  padding: 0 0 0 2rem;
+  margin-bottom: -1rem;
+  margin-top: 1rem;
+  transition: var(--transition);
+}
+
+.pics__container:hover .download-msg {
+  opacity: 1;
+  color: var(--color-light);
+} */
+
+.img_msg__container {
+  width: 50rem;
+  height: 12rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+}
+
+.img_msg__container p {
+  padding: 0;
+}
+
+.camera-icon {
+  font-size: 3rem;
+}
+
+.swiper__container {
+  width: 50rem;
+  padding-bottom: 1rem !important;
+  border-radius: 2rem;
+  height: 24rem !important;
+}
+
+.swiper-slide {
+  text-align: center;
+  padding-top: 1rem !important;
+  user-select: none;
+}
+
+.swiper-slide img {
+  width: 15rem;
+  border: 5px solid var(--color-light);
+}
+
+.swiper-pagination-clickable {
+  margin: 5px auto auto auto !important;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: var(--color-light) !important;
+}
+
+.swiper-pagination-bullet {
+  width: 10px !important;
+  height: 10px !important;
+}
+
+.swiper-scrollbar {
+  opacity: 0 !important;
+}
+
+.pic-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+
+/* ===== MEDIA QUERIES (MEDIUM DEVICES) ===== */
+@media screen and (max-width: 1440px) {
+  .swiper-slide img {
+    width: 17rem;
+    border: 5px solid var(--color-light);
+  }
+
+  .swiper__container {
+    width: 60rem;
+    height: 27rem !important;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .swiper-slide img {
+    width: 13rem;
+    border: 5px solid var(--color-light);
+  }
+
+  .swiper__container {
+    width: 45rem;
+    height: 22rem !important; /* for the swiper dots */
+  }
+}
+
+/* ===== MEDIA QUERIES (SMALL DEVICES) ===== */
+@media screen and (max-width: 600px) {
+
+}

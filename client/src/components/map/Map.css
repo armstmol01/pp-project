@@ -1,0 +1,33 @@
+.map__container {
+  height: 32rem; /*35 rem w/o nav*/
+  width: 30rem;
+  border-radius: 25px;
+  border: 10px solid var(--color-light);
+  margin: auto;
+}
+
+.map__container img {
+  border: none;
+  border-radius: 0;
+}
+
+.tiles {
+  filter: opacity(0.6) brightness(110%) drop-shadow(0 0 0 white);
+}
+
+/* ===== MEDIA QUERIES (MEDIUM DEVICES) ===== */
+@media screen and (max-width: 1440px) {
+  .map__container {
+    width: 70vw;
+    height: 40vh; /*50vh w/o nav*/
+    border-width: 8px;
+  }
+}
+
+/* ===== MEDIA QUERIES (SMALL DEVICES) ===== */
+@media screen and (max-width: 600px) {
+  .map__container {
+    border-width: 5px;
+    width: 90vw;
+  }
+}

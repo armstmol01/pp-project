@@ -1,0 +1,15 @@
+.footer__copyright {
+  margin-bottom: 4rem;
+  color: white;
+  text-align: center;
+  font-size: 20px;
+  padding-top: 5rem;
+  padding-bottom: 1rem;
+}
+
+/* ===== MEDIA QUERIES (SMALL DEVICES) ===== */
+@media screen and (max-width: 1024px) {
+  .footer__copyright {
+    padding-top: 25vh;
+  }
+}

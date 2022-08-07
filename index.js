@@ -15,7 +15,6 @@ const pool = new Pool({
 app.use(express.static(path.join(__dirname, 'client/build')));
 
 // Put all API endpoints under '/api'
-const DB_NAME = "rover-clients.db";
 const SERVER_ERROR_CODE = 500;
 const CLIENT_ERROR_CODE = 400;
 
