@@ -56,50 +56,8 @@ const ImgDisplay = (props) => {
       slidesPerView={3}
       pagination={{ clickable: true }}
       scrollbar={{ draggable: true }}
-    >
-      {/* {
-        data[imgKey].map(({path}, index) => {
-          return (
-            <SwiperSlide key={index} className='swiper-slide'>
-              <div className="pic-wrapper">
-                <a href={path} target='_blank' download rel="noreferrer"><img src={path} alt='pet' /></a>
-              </div>
-            </SwiperSlide>
-          )
-        })
-      } */}
-      <SwiperSlide key={1} className='swiper-slide'>
-        <div className="pic-wrapper">
-          <a href={A} target='_blank' download rel="noreferrer"><img src={A} alt='pet' /></a>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide key={2} className='swiper-slide'>
-        <div className="pic-wrapper">
-          <a href={B} target='_blank' download rel="noreferrer"><img src={B} alt='pet' /></a>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide key={3} className='swiper-slide'>
-        <div className="pic-wrapper">
-          <a href={C} target='_blank' download rel="noreferrer"><img src={C} alt='pet' /></a>
-        </div>
-      </SwiperSlide>
-      <SwiperSlide key={4} className='swiper-slide'>
-        <div className="pic-wrapper">
-          <a href={D} target='_blank' download rel="noreferrer"><img src={D} alt='pet' /></a>
-        </div>
-      </SwiperSlide>
-    </Swiper> :
-    <div className='img_msg__container'><FaCamera className='camera-icon'/><p>coming soon!</p></div>
-    }
-      {/* <Swiper className="swiper__container"
-        // install Swiper modules
-        modules={[Pagination, Scrollbar]}
-        spaceBetween={10}
-        slidesPerView={3}
-        pagination={{ clickable: true }}
-        scrollbar={{ draggable: true }}
-      > */}
-        {/* {
+      >
+        {
           data[imgKey].map(({path}, index) => {
             return (
               <SwiperSlide key={index} className='swiper-slide'>
@@ -109,28 +67,11 @@ const ImgDisplay = (props) => {
               </SwiperSlide>
             )
           })
-        } */}
-        {/* <SwiperSlide key={1} className='swiper-slide'>
-          <div className="pic-wrapper">
-            <a href={A} target='_blank' download rel="noreferrer"><img src={A} alt='pet' /></a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide key={2} className='swiper-slide'>
-          <div className="pic-wrapper">
-            <a href={B} target='_blank' download rel="noreferrer"><img src={B} alt='pet' /></a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide key={3} className='swiper-slide'>
-          <div className="pic-wrapper">
-            <a href={C} target='_blank' download rel="noreferrer"><img src={C} alt='pet' /></a>
-          </div>
-        </SwiperSlide>
-        <SwiperSlide key={4} className='swiper-slide'>
-          <div className="pic-wrapper">
-            <a href={D} target='_blank' download rel="noreferrer"><img src={D} alt='pet' /></a>
-          </div>
-        </SwiperSlide>
-      </Swiper> */}
+        }
+      </Swiper>
+      :
+      <div className='img_msg__container'><FaCamera className='camera-icon'/><p>coming soon!</p></div>
+      }
     </div>
   )
 }
