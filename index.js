@@ -19,6 +19,11 @@ const DB_NAME = "rover-clients.db";
 const SERVER_ERROR_CODE = 500;
 const CLIENT_ERROR_CODE = 400;
 
+app.get('/', (req, res) => {
+  console.log("EHHLO");
+  res.send('Hello World!')
+})
+
 app.get('/db', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -130,5 +135,5 @@ app.get('*', (req, res) => {
   // return db;
 }
 
-const port = process.env.PORT || 8000;
+const port = process.env.PORT || 5000;
 app.listen(port);
