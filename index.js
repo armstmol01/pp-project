@@ -68,7 +68,7 @@ app.get('/api/user', async function(req, res, next) {
     db.release();
   } catch (err) {
     console.error(err);
-    res.status(SERVER_ERROR_CODE).send("Failed get request");
+    res.status(SERVER_ERROR_CODE).send("The passcode you've entered is incorrect");
   }
 });
 

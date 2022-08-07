@@ -186,7 +186,7 @@ const Posts = () => { // functional react component, not class based
           {loaded===true?<Activity data={activities}/>:<p>Loading...</p>}
           {loaded===true?<ImgDisplay data={makeImgKey(userData.name, userData.pets)}/>:<p>Loading...</p>}
         </div>
-        <Footer />
+        {loaded===true?<Footer />:''}
         <MdPets className='pet__icon'/>
       </div>
     </div>
