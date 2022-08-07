@@ -38,6 +38,11 @@ const data = {
     {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEijdjMCR36FpXghjAOr0ipUbhSUMqG3jr4uXpjOaL3zpu90SorNzF-q6m0e9oF4UVvg9wWCp-3My956CYoa2MCi32ps0HS1rQqnCJvPgIBLhXXPu06hgUsNGmGMm1wG6J6uc3ZUvGti9FqloIn0tz4E5g981cRTQx8r93nyxRBhGPsPnVNKGrgJncY/s4032/douglas-gibby-5.jpg'},
     {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEjkfhj-HsSzUmq2E14y0-gn34qwHTYo9N9-IXFkmeu_JnStFMWsgTFxnMOZO-xNfle88g5CA64YSE2uyAm6P6MTq80SGxrrhZqFBIkNVrQQsgFLPDhZVNABk3EY8cIMtMbBrTUkJsP20JwMGW-1oCWgdouBicwrYuzzrqlVByoYet-7ieyhn5VXJao/s4032/douglas-gibby-0.jpg'}
 
+  ],
+  'natalie-autzen' : [
+    {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEj1jXC1RAODAcPEO-Dw9vShHxpOT-9sBP1Ey6djx-YBl0aTYv7eCTRK9U25q2VpN_NbVl_cfhMaGJEA9k4T1A3ODm_btsUWfDifcR2cihz4SLtTw_3X3viBNXwqz8pHhxizedMMs7hZ8S0EHfh5xLee7oV60mHyiGeYntMW8AMoLJNyrMBFGfz2flM/s4032/IMG-6847.jpg'},
+    {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEh9tSuBtOpIFwUkJZjcDibd2v_dAnN5bmUf4wnNfFf4NxU8OqZxr7q0YdVlzINFIPpomgmP5PwlgSWJkLHE2ZtIRp5JkrO5_3BcdQR1kpVKOdn9lAp5zVLoUcsOM8jh6eprLvId0Rk6fl5uX99fZe6XB9YiD9CjLi56EJwX30K4kXiYErAuF74cDpE/s2129/IMG-6836.jpg'},
+    {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgWveqQVxOrMMon4I-toF2Kwez_h62iL0XDvAqM2zcTDAiS00GTziR68ZxaAgha4r8_SxNHfBsoZsXMZN_luILD52I6MWxeg97b9mySh5jmCUw0YwVPqyq1FX_3Of2QI9CdHhBwhKWY0K7xLqIJfAWBB9yGlrZaWR2C8e6NsGMFmlPM2e5rQfhzPfs/s4032/IMG-6806.jpg'}
   ]
 };
 
