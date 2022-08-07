@@ -48,7 +48,6 @@ app.get('/api/user', async function(req, res, next) {
     let qry = 'SELECT * FROM clients WHERE id = $1';
     const client = await pool.connect();
     let data = await client.query(qry, [userid]); // get for 1 row, all for multiple
-    client.release();
 
     if (!data) {
       return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
@@ -61,9 +60,11 @@ app.get('/api/user', async function(req, res, next) {
       "species": data.species.split("-"),
       "num_pics": data.num_pics
     }
+    console.log(result);
 
     res.json(result);
     console.log(result);
+    client.release();
   } catch (err) {
     console.error(err);
     res.status(SERVER_ERROR_CODE).send("Failed get request");
