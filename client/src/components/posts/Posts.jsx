@@ -159,6 +159,21 @@ const Posts = () => { // functional react component, not class based
     setErrorMsg(error.message);
   }
 
+  // {errorMsg === '' ?
+  //     <div className="posts__container">
+  //       <div className="title__container">
+  //         {/* <h2>{makeTitles(userData.name)}'s pets</h2> */}
+  //         <h1>{makeTitles(userData.pets)}</h1>
+  //       </div>
+  //       <div className="content__container">
+  //         {loaded===true?<Activity data={activities}/>:<p>Loading...</p>}
+  //         {loaded===true?<ImgDisplay data={makeImgKey(userData.name, userData.pets)}/>:<p>Loading...</p>}
+  //       </div>
+  //       <Footer />
+  //       <MdPets className='pet__icon'/>
+  //     </div>
+  //     : {errorMsg}}
+
   return (
     <div className='posts'>
       <Nav data={{active: 'posts', message: makeTitles(userData.name) + '\'s pets'}}/>

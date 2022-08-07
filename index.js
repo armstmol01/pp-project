@@ -11,8 +11,10 @@ const pool = new Pool({
   }
 });
 
-// Serve static files from the React app
-app.use(express.static(path.join(__dirname, 'client/build')));
+// Express only serves static assets in production
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 // Put all API endpoints under '/api'
 const SERVER_ERROR_CODE = 500;
