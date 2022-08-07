@@ -58,8 +58,7 @@ app.get('/api/user', async function(req, res, next) {
       "id": userid,
       "name": data.rows[0].name.split("-"),
       "pets": data.rows[0].pets.split("-"),        // - for multiple pets
-      "species": data.rows[0].species.split("-"),
-      "num_pics": data.rows[0].num_pics
+      "species": data.rows[0].species.split("-")
     }
     console.log(result);
 
