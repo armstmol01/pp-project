@@ -21,7 +21,7 @@ const CLIENT_ERROR_CODE = 400;
 
 app.get('/', (req, res) => {
   console.log("EHHLO");
-  res.type.send('Hello World!')
+  res.send('Hello World!')
 })
 
 app.get('/db', async (req, res) => {
