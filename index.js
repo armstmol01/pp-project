@@ -21,7 +21,7 @@ const CLIENT_ERROR_CODE = 400;
 
 app.get('/', (req, res) => {
   console.log("EHHLO");
-  res.send('Hello World!')
+  res.type.send('Hello World!')
 })
 
 app.get('/db', async (req, res) => {
@@ -29,7 +29,7 @@ app.get('/db', async (req, res) => {
     const client = await pool.connect();
     const result = await client.query('SELECT * FROM clients');
     const results = { 'results': (result) ? result.rows : null};
-    res.render('pages/db', results );
+    console.log(results);
     client.release();
   } catch (err) {
     console.error(err);
