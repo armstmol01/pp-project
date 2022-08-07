@@ -89,7 +89,7 @@ input::-ms-clear, input::-ms-reveal {
 @media screen and (max-width: 600px) {
   .login__container {
     width: var(--container-width-sm);
-    margin: 15vh auto;
+    margin: 10vh auto 20vh auto;
   }
 
   h1 {
