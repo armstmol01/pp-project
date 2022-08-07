@@ -19,65 +19,94 @@ const DB_NAME = "rover-clients.db";
 const SERVER_ERROR_CODE = 500;
 const CLIENT_ERROR_CODE = 400;
 
+app.get('/db', async (req, res) => {
+  try {
+    const client = await pool.connect();
+    const result = await client.query('SELECT * FROM clients');
+    const results = { 'results': (result) ? result.rows : null};
+    res.render('pages/db', results );
+    client.release();
+  } catch (err) {
+    console.error(err);
+    res.send("Error " + err);
+  }
+})
+
 /* GET users listing. */
 app.get('api/user', async function(req, res, next) {
-  const userid = parseInt(req.query.passcode, 10);
-  if (!userid) {
-    return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
+  try {
+    const userid = req.query.passcode; // stored as text in Heroku db
+    if (!userid) {
+      return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
+    }
+
+    let qry = 'SELECT * FROM clients WHERE id = $1';
+    let db = await getDBConnection();
+    let data = await db.query(qry, [userid]); // get for 1 row, all for multiple
+    db.release();
+
+    if (!data) {
+      return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
+    }
+
+    let result = {
+      "id": userid,
+      "name": data.name.split("-"),
+      "pets": data.pets.split("-"),        // - for multiple pets
+      "species": data.species.split("-"),
+      "num_pics": data.num_pics
+    }
+
+    res.json(result);
+    console.log(result);
+  } catch (err) {
+    console.error(err);
+    res.status(SERVER_ERROR_CODE).send("Failed get request");
   }
-
-  let qry = 'SELECT * FROM clients WHERE id=?';
-  let db = await getDBConnection();
-  let data = await db.query(qry, [userid]); // get for 1 row, all for multiple
-  db.release();
-
-  if (!data) {
-    return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
-  }
-
-  let result = {
-    "id": userid,
-    "name": data.name.split("-"),
-    "pets": data.pets.split("-"),        // - for multiple pets
-    "species": data.species.split("-"),
-    "num_pics": data.num_pics
-  }
-
-  res.json(result);
 });
 
 /* GET strava access credientials*/
 app.get('api/strava-creds', async function(req, res, next) {
-  let qry = 'SELECT * FROM strava_credentials WHERE client_id=?';
-  let db = await getDBConnection();
-  let data = await db.query(qry, [90470]); // get for 1 row, all for multiple
-  db.release();
+  try {
+    let qry = 'SELECT * FROM strava_credentials WHERE client_id = $1';
+    let db = await getDBConnection();
+    let data = await db.query(qry, [90470]); // get for 1 row, all for multiple
+    db.release();
 
-  if (!data) {
-    return res.status(CLIENT_ERROR_CODE).send("Couldn't get data");
+    if (!data) {
+      return res.status(CLIENT_ERROR_CODE).send("Couldn't get data");
+    }
+
+    let result = {
+      "client_id": data.client_id,
+      "client_secret": data.client_secret,
+      "access_token": data.access_token,
+      "refresh_token": data.refresh_token,
+      "expires_at": data.expires_at
+    }
+
+    res.json(result);
+  } catch (err) {
+    console.error(err);
+    res.status(SERVER_ERROR_CODE).send("Failed get request");
   }
-
-  let result = {
-    "client_id": data.client_id,
-    "client_secret": data.client_secret,
-    "access_token": data.access_token,
-    "refresh_token": data.refresh_token,
-    "expires_at": data.expires_at
-  }
-
-  res.json(result);
 });
 
 /* update record w/ new token info */
-app.post('api/update-strava-creds', async function(req, res, next) {
+app.post('api/update-strava-creds', async function (req, res, next) {
   // JavaScript object containing the parse JSON
-  let refresh_token = req.body.refresh_token;
-  let access_token = req.body.access_token;
-  let expires_at = req.body.expires_at; // UNIX time
-  let qry = "UPDATE strava_credentials SET access_token=?, refresh_token=?, expires_at=? WHERE client_id=?";
-  let db = await getDBConnection();
-  await db.query(qry, [access_token, refresh_token, expires_at, 90470]); // update 1 row
-  db.release();
+  try {
+    let refresh_token = req.body.refresh_token;
+    let access_token = req.body.access_token;
+    let expires_at = req.body.expires_at; // UNIX time
+    let qry = "UPDATE strava_credentials SET access_token = $1, refresh_token = $2, expires_at = $3 WHERE client_id = $4";
+    let db = await getDBConnection();
+    await db.query(qry, [access_token, refresh_token, expires_at, 90470]); // update 1 row
+    db.release();
+  } catch (err) {
+    console.error(err);
+    res.status(SERVER_ERROR_CODE).send("Failed post request");
+  }
 });
 
 // The "catchall" handler: for any request that doesn't
