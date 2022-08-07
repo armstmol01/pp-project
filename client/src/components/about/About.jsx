@@ -17,9 +17,11 @@ const About = () => {
           <h1>Hi, I'm Molly</h1>
           <p>CS Student @ UW<br/></p>
           <p>Pet Sitter + Dog Walker<br/> Seattle, Wa</p>
-          <p><br />I post updates and photos for my clients on this site.</p>
-          <p>If you're a client, login with your unique passcode.</p>
-          <p>Interested in my services? Get in touch below!</p>
+          <div className="description__container">
+            <p>I post updates and photos for my clients on this site.</p>
+            <p>If you're a client, login with your unique passcode.</p>
+            <p>Interested in my services? Get in touch below!</p>
+          </div>
           <div className='contact__container'>
             <h2>Contact Me</h2>
             <div className="link__container">

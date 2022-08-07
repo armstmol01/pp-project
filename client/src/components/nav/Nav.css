@@ -61,6 +61,22 @@ nav .about {
 
 /* ===== MEDIA QUERIES (SMALL DEVICES) ===== */
 @media screen and (max-width: 600px) {
+  nav {
+    height: 3rem;
+  }
+
+  nav .link {
+    font-size: 1.5rem;
+  }
+
+  #name {
+    font-size: 2rem;
+  }
+
+  .back-arrow-icon {
+    font-size: 2rem;
+  }
+
   .back_arrow__container {
     gap: 1rem;
   }
