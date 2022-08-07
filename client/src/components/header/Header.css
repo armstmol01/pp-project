@@ -94,6 +94,7 @@ input::-ms-clear, input::-ms-reveal {
 
   h1 {
     font-size: 5rem;
+    font-weight: 500;
   }
 
   .login__container input {
