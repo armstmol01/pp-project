@@ -19,10 +19,10 @@ const DB_NAME = "rover-clients.db";
 const SERVER_ERROR_CODE = 500;
 const CLIENT_ERROR_CODE = 400;
 
-app.get('/', (req, res) => {
-  console.log("EHHLO");
-  res.send('Hello World!')
-})
+// app.get('/', (req, res) => {
+//   console.log("EHHLO");
+//   res.send('Hello World!')
+// })
 
 app.get('/db', async (req, res) => {
   try {
@@ -47,7 +47,7 @@ app.get('api/user', async function(req, res, next) {
 
     let qry = 'SELECT * FROM clients WHERE id = $1';
     let db = await getDBConnection();
-    let data = await db.query(qry, [userid]); // get for 1 row, all for multiple
+    let data = await db.query(qry, ['3606280675']); // get for 1 row, all for multiple
     db.release();
 
     if (!data) {
