@@ -1,6 +1,6 @@
 .posts__container {
   margin: 0 3rem; /*1.5rem w/o nav*/
-  padding-bottom: 0;
+  padding: 0 auto;
 }
 
 .content__container {
@@ -13,7 +13,7 @@
 
 .title__container {
   /* auto w/o nav*/
-  margin: -4rem 2rem 1rem 3vw; /* vw for better change w/ screen size transition */
+  margin: 0rem 2rem 1rem 3vw; /* vw for better change w/ screen size transition */
 }
 
 .title__container h1 {
