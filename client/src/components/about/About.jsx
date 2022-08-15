@@ -20,7 +20,7 @@ const About = () => {
           <div className="description__container">
             <p>I post updates and photos for my clients on this site.</p>
             <p>If you're a client, login with your unique passcode.</p>
-            <p>Anyone can login with the passcode "test" to see a demo of the site.</p>
+            <p>Login with "test" to see a demo of the site.</p>
             <p>Interested in my services? Get in touch below!</p>
           </div>
           <div className='contact__container'>
