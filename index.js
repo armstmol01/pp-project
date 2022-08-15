@@ -20,11 +20,6 @@ if (process.env.NODE_ENV === "production") {
 const SERVER_ERROR_CODE = 500;
 const CLIENT_ERROR_CODE = 400;
 
-// app.get('/', (req, res) => {
-//   console.log("EHHLO");
-//   res.send('Hello World!')
-// })
-
 app.get('/db', async (req, res) => {
   try {
     const client = await pool.connect();
@@ -95,13 +90,12 @@ app.get('/api/strava-creds', async function(req, res, next) {
     res.json(result);
   } catch (err) {
     console.error(err);
-    res.status(SERVER_ERROR_CODE).send("Failed get request");
+    res.status(SERVER_ERROR_CODE).send("Failed to process request");
   }
 });
 
 /* update record w/ new token info */
 app.post('/api/update-strava-creds', async function (req, res, next) {
-  // JavaScript object containing the parse JSON
   try {
     let refresh_token = req.body.refresh_token;
     let access_token = req.body.access_token;
@@ -112,7 +106,7 @@ app.post('/api/update-strava-creds', async function (req, res, next) {
     db.release();
   } catch (err) {
     console.error(err);
-    res.status(SERVER_ERROR_CODE).send("Failed post request");
+    res.status(SERVER_ERROR_CODE).send("Failed to process request");
   }
 });
 
@@ -121,21 +115,6 @@ app.post('/api/update-strava-creds', async function (req, res, next) {
 app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname+'/client/build/index.html'));
 });
-
-/**
- * Establishes database connection
- */
- async function getDBConnection() {
-  const db = await pool.connect();
-  return db;
-
-
-  // const db = await sqlite.open({
-  //   filename: DB_NAME,
-  //   driver: sqlite3.Database
-  // });
-  // return db;
-}
 
 const port = process.env.PORT || 5000;
 app.listen(port);
