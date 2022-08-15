@@ -4,7 +4,6 @@ import './Posts.css'
 import Activity from '../activity/Activity'
 import Nav from '../nav/Nav'
 import ImgDisplay from '../img-display/ImgDisplay'
-import Footer from '../footer/Footer'
 import{MdPets} from 'react-icons/md'
 
 const Posts = () => { // functional react component, not class based
