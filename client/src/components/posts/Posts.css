@@ -71,7 +71,6 @@
     font-weight: 500;
     font-size: 5.5rem;
     margin-top: -1.5rem;
-    margin-left: 0;
   }
 
   .content__container p {
@@ -101,6 +100,7 @@
 
   .title__container h1 {
     font-size: 4rem;
+    margin-left: 0;
   }
 
   .title__container h2 {
