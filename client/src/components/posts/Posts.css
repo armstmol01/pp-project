@@ -16,7 +16,6 @@
   font-size: 6.5rem;
   font-weight: 500;
   margin-left: 1rem;
-
 }
 
 /* .title__container h2 {
@@ -72,6 +71,7 @@
     font-weight: 500;
     font-size: 5.5rem;
     margin-top: -1.5rem;
+    margin-left: 0;
   }
 
   .content__container p {
