@@ -36,8 +36,12 @@
 /* ===== MEDIA QUERIES (WIDE SCREENS) */
 @media screen and (min-width: 1510px) {
   .posts__container {
-    margin: 2.5rem auto auto auto;
+    margin-top: 2.5rem;
     width: 80rem;
+  }
+
+  .content__container {
+    margin-top: 0;
   }
 
   .title__container {
