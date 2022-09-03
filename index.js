@@ -44,9 +44,9 @@ app.get('/api/user', async function(req, res, next) {
     let qry = 'SELECT * FROM clients WHERE id = $1';
     let db = await pool.connect();
     let data = await db.query(qry, [userid]); // get for 1 row, all for multiple
+    db.release();
 
     if (!data) {
-      client.release();
       return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
     }
 
@@ -60,7 +60,6 @@ app.get('/api/user', async function(req, res, next) {
 
     res.json(result);
     console.log(result);
-    db.release();
   } catch (err) {
     console.error(err);
     res.status(SERVER_ERROR_CODE).send("The passcode you've entered is incorrect");
