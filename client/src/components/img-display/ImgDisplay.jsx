@@ -56,7 +56,7 @@ const data = {
 
 const ImgDisplay = (props) => {
   const imgKey = props.data;
-  console.log(imgKey);
+  // console.log(imgKey);
 
   return (
     <div className="pics__container">

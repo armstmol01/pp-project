@@ -11,7 +11,7 @@ const Header = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    console.log(event.target.passcode.value);
+    // console.log(event.target.passcode.value);
     setErrorMsg("");
 
     // request user data
@@ -25,7 +25,7 @@ const Header = () => {
 
   const handleLogin = (resp) => {
     setErrorMsg("");
-    console.log(resp);
+    // console.log(resp);
     navigate('posts', {replace: false, state: {resp}});
   }
 

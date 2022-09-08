@@ -34,7 +34,7 @@ const Posts = () => { // functional react component, not class based
   }, [""]);
 
   const makeTitles = (names) => {
-    console.log(names);
+    // console.log(names);
     // capitalize first letter of name
     let str = names[0][0].toUpperCase() + names[0].substring(1);
     for (let i = 1; i < names.length; i++) {
@@ -57,7 +57,7 @@ const Posts = () => { // functional react component, not class based
   }
 
   const handleResponse = (res) => {
-     console.log("handleResp: ");
+    // console.log("handleResp: ");
     // console.log(res);
     // console.log(res.expires_at <= Math.floor(Date.now() / 1000))
     let curr_time = Math.floor(Date.now() / 1000);
@@ -124,8 +124,8 @@ const Posts = () => { // functional react component, not class based
 
   // filter activities to find last matching activity
   const filterActivities = (data) => {
-    console.log("filter");
-    console.log(data);
+    // console.log("filter");
+    // console.log(data);
     let match;
     let items = {};
     for (let k = Object.keys(data).length - 1; k >= 0; k--) {
@@ -144,7 +144,7 @@ const Posts = () => { // functional react component, not class based
 
     setActivities(items);
     setLoaded(true);
-    console.log("POSTS found activity: " + items);
+    // console.log("POSTS found activity: " + items);
   }
 
   const checkStatus = async (res) => {
