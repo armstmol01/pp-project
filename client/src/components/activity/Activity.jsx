@@ -4,6 +4,7 @@ import Map from '../map/Map';
 
 const Activity = (props) => {
   const activity = props.data;
+  console.log(activity.map);
   const [mapLines, setMapLines] = useState([]);
   const [mapCenter, setMapCenter] = useState([0, 0]);
 
