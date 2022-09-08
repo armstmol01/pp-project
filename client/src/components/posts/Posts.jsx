@@ -144,6 +144,7 @@ const Posts = () => { // functional react component, not class based
 
     setActivities(items);
     setLoaded(true);
+    console.log("POSTS found activity: " + items);
   }
 
   const checkStatus = async (res) => {
