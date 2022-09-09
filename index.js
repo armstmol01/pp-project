@@ -104,8 +104,9 @@ app.post('/api/update-strava-creds', async function (req, res, next) {
     await db.query(qry, [access_token, refresh_token, expires_at, 90470]); // update 1 row
     db.release();
   } catch (err) {
-    // console.error(err);
+    console.error(err);
     res.status(SERVER_ERROR_CODE).send("Failed to process request");
+    // console.log(err);
   }
 });
 
