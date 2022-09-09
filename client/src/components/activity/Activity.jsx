@@ -30,6 +30,10 @@ const Activity = (props) => {
 
 
   useEffect(() => {
+    if (!activity.map) {
+      return;
+    }
+
     const lines = polyline.decode(activity.map.summary_polyline);
       // console.log(lines);
     setMapLines(lines);
