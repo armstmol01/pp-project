@@ -58,7 +58,11 @@ const Activity = (props) => {
   }
 
   if (mapLines.length === 0) {
-    return (<p>No walks to display</p>);
+    return (
+      <div className="empty__activity">
+        <p>No walks to display</p>
+      </div>
+    );
   } else {
     return (
       <div className='activity__container'>

@@ -11,6 +11,10 @@
   padding-right: 2rem;
 }
 
+.empty__activity {
+  text-align: center;
+}
+
 .activity__title h2 {
   font-size: 1.5rem;
   /* padding-left: 2rem; */
