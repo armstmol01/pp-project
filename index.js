@@ -30,9 +30,7 @@ app.get('/db', async (req, res) => {
     const result = await client.query('SELECT * FROM clients');
     const results = { 'results': (result) ? result.rows : null};
     client.release();
-    // console.log(results);
   } catch (err) {
-    // console.error(err);
     res.send("Error " + err);
   }
 })
@@ -44,7 +42,7 @@ app.get('/api/user', async function(req, res, next) {
     if (!userid) {
       return res.status(CLIENT_ERROR_CODE).send("The passcode you've entered is incorrect");
     }
-    // console.log(userid);
+
     let qry = 'SELECT * FROM clients WHERE id = $1';
     let db = await pool.connect();
     let data = await db.query(qry, [userid]); // get for 1 row, all for multiple
@@ -60,12 +58,9 @@ app.get('/api/user', async function(req, res, next) {
       "pets": data.rows[0].pets.split("-"),        // - for multiple pets
       "species": data.rows[0].species.split("-")
     }
-    // console.log(result);
 
     res.json(result);
-    // console.log(result);
   } catch (err) {
-    // console.error(err);
     res.status(SERVER_ERROR_CODE).send("The passcode you've entered is incorrect");
   }
 });
@@ -92,7 +87,6 @@ app.get('/api/strava-creds', async function(req, res, next) {
 
     res.json(result);
   } catch (err) {
-    // console.error(err);
     res.status(SERVER_ERROR_CODE).send("Failed to process request");
   }
 });
@@ -108,9 +102,7 @@ app.post('/api/update-strava-creds', async function (req, res, next) {
     await db.query(qry, [access_token, refresh_token, expires_at, 90470]); // update 1 row
     db.release();
   } catch (err) {
-    console.log(err);
     res.status(SERVER_ERROR_CODE).send("Failed to process request");
-    // console.log(err);
   }
 });
 

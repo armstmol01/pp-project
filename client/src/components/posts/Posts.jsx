@@ -16,8 +16,8 @@ const Posts = () => { // functional react component, not class based
 
   const location = useLocation();
   const userData = location.state.resp;
-  const [errorMsg, setErrorMsg] = useState("");
-  const [activities, setActivities] = useState(["hey"]);
+  // const [errorMsg, setErrorMsg] = useState("");
+  const [activities, setActivities] = useState([""]);
   const [loaded, setLoaded] = useState(false);
 
   const axios = require('axios');
@@ -157,7 +157,8 @@ const Posts = () => { // functional react component, not class based
   }
 
   const handleError = (error) => {
-    setErrorMsg(error.message);
+    console.log(error);
+    // setErrorMsg(error.message);
   }
 
   // {errorMsg === '' ?

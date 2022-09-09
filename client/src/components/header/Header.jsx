@@ -5,13 +5,11 @@ import {MdPets} from 'react-icons/md'
 import {BsArrowRightShort} from 'react-icons/bs'
 
 const Header = () => {
-  // const [validUser, setValidUser] = useState(false);
   const [errorMsg, setErrorMsg] = useState("");
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    // console.log(event.target.passcode.value);
     setErrorMsg("");
 
     // request user data
@@ -25,7 +23,6 @@ const Header = () => {
 
   const handleLogin = (resp) => {
     setErrorMsg("");
-    // console.log(resp);
     navigate('posts', {replace: false, state: {resp}});
   }
 

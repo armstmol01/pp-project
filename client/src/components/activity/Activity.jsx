@@ -4,8 +4,6 @@ import Map from '../map/Map';
 
 const Activity = (props) => {
   const activity = props.data;
-  // console.log("MAP: " + activity.map);
-  // console.log("NAME: " + activity.name);
   const [mapLines, setMapLines] = useState([]);
   const [mapCenter, setMapCenter] = useState([0, 0]);
 
@@ -55,17 +53,31 @@ const Activity = (props) => {
     return [(maxLat + minLat) / 2, (maxLng + minLng) / 2];
   }
 
-  return (
-    <div className='activity__container'>
-      <div className='activity__title'>
-        <h2>{activityDate}</h2>
-
-        <h2>{activityDistance} miles</h2>
-        <h2>{activityDuration}</h2>
+  if (activity === {}) {
+    return (<p>No walks to display</p>);
+  } else {
+    return (
+      <div className='activity__container'>
+        <div className='activity__title'>
+          <h2>{activityDate}</h2>
+          <h2>{activityDistance} miles</h2>
+          <h2>{activityDuration}</h2>
+        </div>
+        <Map data={{lines: mapLines, center: mapCenter}} />
       </div>
-      <Map data={{lines: mapLines, center: mapCenter}} />
-    </div>
-  );
+    );
+  }
+
+  // return (
+  //   <div className='activity__container'>
+  //     <div className='activity__title'>
+  //       <h2>{activityDate}</h2>
+  //       <h2>{activityDistance} miles</h2>
+  //       <h2>{activityDuration}</h2>
+  //     </div>
+  //     <Map data={{lines: mapLines, center: mapCenter}} />
+  //   </div>
+  // );
 }
 
 export default Activity
