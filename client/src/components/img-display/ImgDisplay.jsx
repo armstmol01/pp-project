@@ -3,13 +3,6 @@ import './ImgDisplay.css'
 
 import {FaCamera} from 'react-icons/fa'
 
-import A from '../../assets/pet-pics/amy-shep-0.jpg';
-import B from '../../assets/pet-pics/amy-shep-1.jpg';
-import C from '../../assets/pet-pics/amy-shep-2.jpg';
-import D from '../../assets/pet-pics/amy-shep-3.jpg';
-// import E from '../../assets/pet-pics/amy-shep-4.jpg';
-// import F from '../../assets/pet-pics/amy-shep-5.jpg';
-
 // import Swiper core and required modules
 import { Pagination, Scrollbar } from 'swiper';
 
