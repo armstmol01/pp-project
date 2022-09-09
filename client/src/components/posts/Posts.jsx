@@ -126,18 +126,32 @@ const Posts = () => { // functional react component, not class based
   const filterActivities = (data) => {
     // console.log("filter");
     // console.log(data);
-    let match;
+    let matchOwner = false;
+    let matchPet = false;
     let items = {};
     for (let k = Object.keys(data).length - 1; k >= 0; k--) {
       let activity = data[k].name.toLowerCase();
+      // check if pet names match activity
       for (let i = 0; i < userData.pets.length; i++) {
         // toLowerCase normalizes data from db (activity is lower case)
-        match = activity.includes(userData.pets[i].toLowerCase());
+        matchPet = activity.includes(userData.pets[i].toLowerCase());
+        if (!matchPet) {
+          break;
+        }
       }
+      // pets don't match activity so no need to check for owners
+      if (!matchPet) {
+        continue;
+      }
+      // check if owner names match activity
       for (let j = 0; j < userData.name.length; j++) {
-        match = activity.includes(userData.name[j].toLowerCase());
+        matchOwner = activity.includes(userData.name[j].toLowerCase());
+        if (!matchOwner) {
+          break;
+        }
       }
-      if (match) {
+      // exit loop if all pets AND all owner names match activity
+      if (matchPet && matchOwner) {
         items = data[k];
         break;
       }
