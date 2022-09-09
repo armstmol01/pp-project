@@ -6,28 +6,33 @@ const Activity = (props) => {
   const activity = props.data;
   const [mapLines, setMapLines] = useState([]);
   const [mapCenter, setMapCenter] = useState([0, 0]);
+  let activityDate;
+  let activityDistance;
+  let activityDuration;
 
   var polyline = require('@mapbox/polyline');
   var moment = require('moment');
 
-  let activityDate = moment(activity.start_date_local).local().format("MMM Do, YYYY");
-  let activityDistance = (activity.distance*0.00062137).toFixed(2);
+  if (activity.map) {
+    activityDate = moment(activity.start_date_local).local().format("MMM Do, YYYY");
+    activityDistance = (activity.distance*0.00062137).toFixed(2);
 
-  let hours = Math.floor(activity.elapsed_time / 3600).toFixed(0);
-  let min = ((activity.elapsed_time / 60) - (hours * 60)).toFixed(0);
-  let activityDuration = hours + "h ";
-  if (min < 10) {
-    activityDuration += "0" + min
-  } else {
-    activityDuration += min;
+    let hours = Math.floor(activity.elapsed_time / 3600).toFixed(0);
+    let min = ((activity.elapsed_time / 60) - (hours * 60)).toFixed(0);
+    activityDuration = hours + "h ";
+
+    if (min < 10) {
+      activityDuration += "0" + min
+    } else {
+      activityDuration += min;
+    }
+    activityDuration += "m";
+    //if (hours > 0) {
+      // activityDuration =  hours + ":" + min;
+    // } else {
+    //   activityDuration = min + "m";
+    // }
   }
-  activityDuration += "m";
-  //if (hours > 0) {
-    // activityDuration =  hours + ":" + min;
-  // } else {
-  //   activityDuration = min + "m";
-  // }
-
 
   useEffect(() => {
     if (!activity.map) {
