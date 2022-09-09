@@ -57,7 +57,7 @@ const Activity = (props) => {
     return [(maxLat + minLat) / 2, (maxLng + minLng) / 2];
   }
 
-  if (activity === {}) {
+  if (mapLines.length === 0) {
     return (<p>No walks to display</p>);
   } else {
     return (
