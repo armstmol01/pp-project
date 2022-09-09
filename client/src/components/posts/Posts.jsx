@@ -131,10 +131,11 @@ const Posts = () => { // functional react component, not class based
     for (let k = Object.keys(data).length - 1; k >= 0; k--) {
       let activity = data[k].name.toLowerCase();
       for (let i = 0; i < userData.pets.length; i++) {
-        match = activity.includes(userData.pets[i]);
+        // toLowerCase normalizes data from db (activity is lower case)
+        match = activity.includes(userData.pets[i].toLowerCase());
       }
       for (let j = 0; j < userData.name.length; j++) {
-        match = activity.includes(userData.name[j]);
+        match = activity.includes(userData.name[j].toLowerCase());
       }
       if (match) {
         items = data[k];
