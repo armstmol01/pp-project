@@ -124,6 +124,7 @@ const Posts = () => { // functional react component, not class based
 
   // filter activities to find last matching activity
   const filterActivities = (data) => {
+    console.log(data);
     // console.log("filter");
     // console.log(data);
     let matchOwner = false;
