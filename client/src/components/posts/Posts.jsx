@@ -110,7 +110,7 @@ const Posts = () => { // functional react component, not class based
     axios.get(url,
       {
         params: {
-          'after': 1662676296
+          'after': 1662676296 // there's a 30 entry strava resp limit
         },
         headers: {
           'Authorization' : autho
@@ -124,7 +124,6 @@ const Posts = () => { // functional react component, not class based
 
   // filter activities to find last matching activity
   const filterActivities = (data) => {
-    console.log(data);
     // console.log("filter");
     // console.log(data);
     let matchOwner = false;
