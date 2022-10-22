@@ -100,10 +100,12 @@ const Posts = () => { // functional react component, not class based
   const loadActivities = (data) => {
     let url = base_url + '/api/v3/athlete/activities';
     // set date
-    // let date = new Date();
-    // date.setHours(0, 0, 0, 0);
+    let date = new Date();
+    date.setHours(0, 0, 0, 0);
     // let today = Math.floor(Date.parse(date) / 1000);
-    // let yesterday = Math.floor(Date.parse(date) /1000) - 86400;
+    let lastWeek = Math.floor(Date.parse(date) /1000) - 604800000;
+    console.log(lastWeek);
+    console.log(1662676296);
 
     // set authorization
     let autho = 'Bearer ' + data.access_token; // 'Bearer {}'.format(resp.access_token)
