@@ -103,16 +103,17 @@ const Posts = () => { // functional react component, not class based
     let date = new Date();
     date.setHours(0, 0, 0, 0);
     // let today = Math.floor(Date.parse(date) / 1000);
-    let lastWeek = Math.floor(Date.parse(date) /1000) - 604800000;
+    let lastWeek = Math.floor(Date.parse(date)/1000) - 604800;
     console.log(lastWeek);
     console.log(1662676296);
+    // 1666406358724
 
     // set authorization
     let autho = 'Bearer ' + data.access_token; // 'Bearer {}'.format(resp.access_token)
     axios.get(url,
       {
         params: {
-          'after': 1662676296 // there's a 30 entry strava resp limit
+          'after': lastWeek // there's a 30 entry strava resp limit
         },
         headers: {
           'Authorization' : autho
