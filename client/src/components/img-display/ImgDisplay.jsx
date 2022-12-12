@@ -14,7 +14,7 @@ import 'swiper/css/pagination';
 import 'swiper/css/scrollbar';
 
 const data = {
-  'amy-shep-sandy' : [
+  'amy-shep-sandi' : [
     // most recent
     {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhOdPlXJDIlkqOBDKfd9uD9DfMbqWSXgJjErlpXYMlm3wzSTf6Pz_fYU9r5pmkaFXsH4bUiZpwPegFnBzZHPNabfO1wknq8FJpElpP5J22rzHLBCJDgULhSg9hY6vK2ENrg8tqI6sTClqsQ1X8WegrtYBhjH1ESV3oNjlCJ85e-CBuzZS5XHL7ROGw/s4032/IMG-0393.jpg'},
     {path: 'https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEgzrfLXm37rGv_sUglM2ZfIryEXFdoUyiH5Y0XRfIsscFflEPA0RyWutN4qpObJ3WAPv1xI2tRNC098tMB6EM_IWf1AtdE_uHfxOFmHh3hdXd5_n9HpMlN3RpxApW4FINsFTX-84zBebffXt8O0SGPNgF552Ngz8fJjuY0AFX-8-beR2aE3l477xGI/s4032/IMG-0264.jpg'},
